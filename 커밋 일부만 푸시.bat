@@ -29,8 +29,10 @@ if not exist ".git" (
 for /f "delims=" %%i in ('git branch --show-current') do set "current_branch=%%i"
 
 echo.
+echo ===================================================
 echo [현재 작업 위치: %CD%]
 echo [현재 브랜치: %current_branch%]
+echo ===================================================
 echo.
 
 :: 3. 보여줄 커밋 개수 입력받기 (디폴트 10)
@@ -38,9 +40,10 @@ set log_count=10
 set /p input_count="몇 개의 최근 커밋 내역을 확인하시겠습니까? (기본값 10개): "
 if not "%input_count%"=="" set log_count=%input_count%
 
-echo.
 echo [최근 커밋 내역 %log_count%개]
+echo ===================================================
 echo.
+
 :: 입력받은 개수(%log_count%)만큼 커밋 로그를 출력합니다.
 git log --oneline -n %log_count%
 echo.
@@ -58,13 +61,17 @@ if "%commit_hash%"=="" (
 
 :: 5. 특정 커밋까지만 푸시 실행
 echo.
+echo ===================================================
 echo [origin] 원격 저장소의 [%current_branch%] 브랜치에 [%commit_hash%] 커밋까지만 반영합니다...
 echo 실행 명령어: git push origin %commit_hash%:%current_branch%
+echo ===================================================
 echo.
 
 git push origin %commit_hash%:%current_branch%
 
 echo.
+echo ===================================================
 echo 작업이 완료되었습니다.
+echo ===================================================
 pause
 endlocal

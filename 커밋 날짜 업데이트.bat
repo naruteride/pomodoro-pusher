@@ -58,12 +58,17 @@ if "%count%"=="" (
 )
 
 echo.
+echo ===================================================
 echo [%current_branch%] 브랜치의 최근 [%count%]개 커밋 날짜를 현재 시간으로 업데이트합니다...
+echo ===================================================
+echo.
 
 :: 5. git rebase --exec 실행
 git rebase HEAD~%count% --exec "git commit --amend --no-edit --reset-author --no-verify"
 
 echo.
+echo ===================================================
 echo 작업이 완료되었습니다.
+echo ===================================================
 pause
 endlocal
