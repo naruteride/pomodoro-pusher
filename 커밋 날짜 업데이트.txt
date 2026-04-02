@@ -1,7 +1,7 @@
 # 1. 3개의 커밋 리베이스 시작
 git rebase -i HEAD~3
 
-# 2. 리베이스 편집기에서 3개를 모두 edit으로 변경 후 저장
+# 2. 리베이스 편집기에서 pick 3개를 모두 edit으로 변경 후 저장
 
 # 3. 멈출 때마다 아래 명령어 입력 (환경 변수 필요 없음)
 git commit --amend --no-edit --reset-author --no-verify
